@@ -14,7 +14,7 @@ The Spring Cloud framework provides us with the [Sleuth] library (https://spring
 
 The problem occurs when our organizations decide to use other names to spread the information. This article deals with how to use other names for the headers, keeping in mind that Sleuth does not allow us to remove the original headers.
 
-## Configuración
+## Configuration
 
 The first step will be to configure our project to provide it with the ability to propagate headers. For this we will add the dependency with Sleuth
 
@@ -46,7 +46,7 @@ The first step will be to configure our project to provide it with the ability t
 
 ```
 
-## Montando nuestro cliente ...
+## Building our client ...
 
 The next task will be to create a client capable of invoking a service through spring's RestTemplate connector. Sleuth, allows you to use different connectors, but in this article we will focus on RestTempalte.
 
@@ -149,7 +149,7 @@ And the response of our service will also return the information.
 
 We pay special attention to the sentence `MDC.put (Constant.X_TRACE_ID, xTraceId);`, this allows us to have the information when painting the logs of our application.
 
-## Configurando logback
+## Configuring logback
 
 Now the time has come to configure the traces of our application, for this we will use logback, generating our own apender to show the information of the generated traceId.
 

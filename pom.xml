@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>logger-lib</module>
         <module>logger-client</module>
     </modules>
 </project>
