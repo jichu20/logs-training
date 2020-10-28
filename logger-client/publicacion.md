@@ -1,3 +1,5 @@
+# Trazabilidad en servicios distribuidos
+
 Espero que este sea el primero de una serie de articulos donde podamos ver como gestionar peticiones a través de varios microservicios.
 
 Devido a la evolución tecnológica sufrida en los ultimos años, los sistemas de logs y trazas deverían de obtener mayor peso en las aplicaciones. Esto es devido a los sistemas distribuidos y a la propagación de los microservicios.
