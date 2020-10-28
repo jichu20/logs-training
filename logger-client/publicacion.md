@@ -50,7 +50,7 @@ El primer paso será configurar nuestro proyecto para dotarle de la capacidad de
 
 El siguiente paso será crear un cliente capaz de invocar a un servicio a traves del conector RestTemplate de spring. Sleuth, permite utilizar diferentes conectores, pero en este articulo nos centraremos en RestTempalte.
 
-Es importante que el componente RestTemplate utilizado sea un bean inyectado en nuestro contesto, es decir, no podemos utilizar la sentencia `new RestTempalte()` ya que sleuth no tendría capacidad para inyectar los interceptores o filtros necesarios, para ello generamos un bean en el contexto de tipo RestTemplate
+Es importante que el componente RestTemplate utilizado sea un bean inyectado en nuestro contesto, es decir, no podemos utilizar la sentencia `new RestTemplate()` ya que sleuth no tendría capacidad para inyectar los interceptores o filtros necesarios, para ello generamos un bean en el contexto de tipo RestTemplate
 
 ```java
 @Configuration
