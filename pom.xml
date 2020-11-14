@@ -12,5 +12,6 @@
     <modules>
         <module>logger-lib</module>
         <module>logger-client</module>
+        <module>logger-server</module>
     </modules>
 </project>
