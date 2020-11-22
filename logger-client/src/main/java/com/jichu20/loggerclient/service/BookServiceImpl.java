@@ -1,5 +1,7 @@
 package com.jichu20.loggerclient.service;
 
+import com.jichu20.loggerlib.dto.BookDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,9 @@ public class BookServiceImpl implements BookService {
         this.restTemplate = restTemplate;
     }
 
-    public String getBook(String bookName) {
+    public BookDto getBook(String bookName) {
 
-        ResponseEntity<String> book = restTemplate.getForEntity("https://webhook.site/1f66b8f8-d524-4a61-9ef9-b481b3cd53da", String.class);
+        ResponseEntity<BookDto> book = restTemplate.getForEntity("http://localhost:8081/book/elbarcodelpirata", BookDto.class);
 
         return book.getBody();
 

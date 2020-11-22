@@ -1,7 +1,9 @@
 package com.jichu20.loggerclient.service;
 
+import com.jichu20.loggerlib.dto.BookDto;
+
 public interface BookService {
 
-    public String getBook(String bookName);
+    public BookDto getBook(String bookName);
 
 }

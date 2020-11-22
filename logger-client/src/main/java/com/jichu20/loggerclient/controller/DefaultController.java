@@ -1,6 +1,7 @@
 package com.jichu20.loggerclient.controller;
 
 import com.jichu20.loggerclient.service.BookService;
+import com.jichu20.loggerlib.dto.BookDto;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,11 +20,11 @@ public class DefaultController {
     BookService bookService;
 
     @GetMapping("/")
-    public ResponseEntity<String> getBook() throws InterruptedException {
+    public ResponseEntity<BookDto> getBook() throws InterruptedException {
 
         logger.info("Hello Sleuth");
-        bookService.getBook("bookName");
-        return new ResponseEntity<String>("Arriba", HttpStatus.ACCEPTED);
+        BookDto book = bookService.getBook("bookName");
+        return new ResponseEntity<BookDto>(book, HttpStatus.ACCEPTED);
 
     }
 
