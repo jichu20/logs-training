@@ -1,1 +1,3 @@
 spring.application.name: client-logger
+server:
+  port: 8080

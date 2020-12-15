@@ -13,5 +13,6 @@ public class BookDto {
 
     private String name;
     private String resume;
+    private String author;
     private int numPAges;
 }

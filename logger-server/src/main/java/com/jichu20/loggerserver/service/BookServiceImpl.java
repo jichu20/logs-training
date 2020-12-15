@@ -9,7 +9,7 @@ public class BookServiceImpl implements BookService {
 
     public BookDto getBook(String bookName) {
 
-        return new BookDto(bookName, "resume of the book", 2);
+        return new BookDto(bookName, "resume of the book", "Robert Louis Stevenson", 2);
 
     }
 }

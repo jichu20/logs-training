@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "logger-client"
+	},
+	{
+		"path": "logger-server"
+	}
+],
+  "settings": {}
+}

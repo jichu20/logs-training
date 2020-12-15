@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+    <!-- custom properties -->
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+
+    <!-- custom converters -->
+    <conversionRule conversionWord="nanos" converterClass="com.jichu20.loggerlib.converter.NanoSecondsConverter" />
+
+    <!-- appenders -->
+    <appender name="json-appender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <fieldName>creationDate</fieldName>
+                    <pattern>[UNIX_TIMESTAMP_AS_NUMBER]</pattern>
+                </timestamp>
+                <pattern>
+                    <pattern>
+        			{
+        				"level": "%level",
+  						"message": "%msg",
+						"spanId": "%X{X-B3-SpanId:-}",
+						"traceId": "%X{xTraceId:-}",
+						"properties": {
+							"app-name": "${springAppName:-}",
+							"class": "%logger{40}",
+							"thread": "%thread"
+  						}, 
+                        "creationDateNano": "#asLong{%-19nanos}"
+        			}
+                    </pattern>
+                </pattern>
+
+            </providers>
+            <lineSeparator>UNIX</lineSeparator>
+        </encoder>
+    </appender>
+</included>
