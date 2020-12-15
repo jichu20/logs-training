@@ -170,7 +170,7 @@ Prestemos especial atención a la sentencia `MDC.put(Constant.X_TRACE_ID, xTrace
 
 Es el momento de modificar nuestra configuración de logback para la generación de logs en formato Json, posteriormente podremos utilizar otros procesos para el envio de estos logs a sistemas centralizados.
 
-Para realizar dicha configuración uilizaremos la librería logsthas, que proporciona diferentes appenders, layouts, ... para logback. Para ello agregaremos la dependencia.
+Para realizar dicha configuración uilizaremos la librería [logsthas](https://github.com/logstash/logstash-logback-encoder), que proporciona diferentes appenders, layouts, ... para logback. Para ello agregaremos la dependencia.
 
 ```xml
         <!-- logstash -->
@@ -244,7 +244,7 @@ public class NanoSecondsConverter extends ClassicConverter {
 }
 ```
 
-y modificaremos el appender para incluir un nuevo campo que contenga la fecha en formato nanosegundos
+y modificaremos el appender para incluir un nuevo campo que contenga la fecha en formato nano segundos
 
 ```xml
     <!-- custom converters -->
@@ -302,7 +302,6 @@ Request
 Response
 
 ```json
-
 {
   "creationDate": 1608033542219,
   "level": "INFO",
@@ -316,6 +315,4 @@ Response
   },
   "creationDateNano": 1608033542219000000
 }
-
 ```
-
