@@ -1,2 +1,10 @@
 server:
   port: 8081
+
+### Actuator config #########
+management:
+  endpoints:
+    web:
+      base-path: /_service/
+      path-mapping:
+        info: /info

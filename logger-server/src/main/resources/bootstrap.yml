@@ -1,1 +1,3 @@
-spring.application.name: client-server
+spring:
+  application.name: client-server
+#   main.allow-bean-definition-overriding: true

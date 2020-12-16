@@ -5,10 +5,10 @@
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
 
     <!-- custom converters -->
-    <conversionRule conversionWord="nanos" converterClass="com.jichu20.loggerlib.converter.NanoSecondsConverter" />
+    <!-- <conversionRule conversionWord="nanos" converterClass="com.jichu20.commons.converter.NanoSecondsConverter" /> -->
 
     <!-- appenders -->
-    <appender name="json-appender" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- <appender name="json-appender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
             <providers>
                 <timestamp>
@@ -35,5 +35,11 @@
             </providers>
             <lineSeparator>UNIX</lineSeparator>
         </encoder>
+    </appender> -->
+
+    <appender name="default-logger" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%yellow(%d{HH:mm:ss.SSS}) %highlight(%-5level) %boldGreen(%logger{40}) - TraceId: %X{xTraceId:none} - %msg%n</pattern>
+        </layout>
     </appender>
 </included>

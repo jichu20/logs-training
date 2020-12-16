@@ -4,7 +4,8 @@
 	<include resource="appenders.xml"/>
 
 	<root level="INFO">
-		<appender-ref ref="json-appender" />
+		<!-- <appender-ref ref="json-appender" /> -->
+		<appender-ref ref="default-logger" />
 	</root>
 
 </configuration>
