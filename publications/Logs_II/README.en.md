@@ -1,12 +1,12 @@
 # Traceability in distributed services part II
 
-In the [latest] article (https://jichu20.medium.com/traceability-in-distributed-services-bb3f67a67cb4), we viewed how to transport the value of any headers through our service so that we could have a unique identifier 'xTraceId' in all our services so that we could trace a request and link the logs that are generated in the different micro services that are part of our system.
+In the [latest article](https://jichu20.medium.com/traceability-in-distributed-services-bb3f67a67cb4), we viewed how to transport the value of any headers through our service so that we could have a unique identifier 'xTraceId' in all our services so that we could trace a request and link the logs that are generated in the different micro services that are part of our system.
 
 In this post, we are going to integrate these changes into our server application so that we can see how the value of the xTraceId header is the same in the different services that our request passes through.
 
 Then we will see how to modify the logback configuration to generate the traces in Json format and finally we will include the generation of traces for our own application.
 
-All these changes will be based on the spring [Sleuth] library (https://spring.io/projects/spring-cloud-sleuth).
+All these changes will be based on the spring [Sleuth library](https://spring.io/projects/spring-cloud-sleuth).
 
 ## Integration of changes in the server
 
@@ -92,7 +92,7 @@ It is important that the RestTemplate component used is a bean injected in our c
 
 ```java
 @Configuration
-public class configuration {
+public class LoggingConfiguration {
 
     @Bean
     public RestTemplate getRestTemplate() {
@@ -109,7 +109,7 @@ This first test will generate the following request
 
 As we can see, in the headers sent, the B3 headers are included with the corresponding information.
 
-## Generando nuevas cabeceras
+## Generating new headers
 
 Now is the time to generate new headers, specifically we will generate the `xTraceId` header whose value will be a random UUID.
 
@@ -166,7 +166,7 @@ And the response of our service will also return the information.
 
 Pay special attention to the sentence `MDC.put(Constant.X_TRACE_ID, xTraceId);`, This allows us to have the information when writing the logs of our application.
 
-## Configurando logback
+## Configuring logback
 
 It is the moment to modify our logback configuration for the generation of logs in Json format, later we can use other processes to send these logs to centralized systems.
 
@@ -220,7 +220,7 @@ When we run our application, we can see that the traces now have a json format
 
 ## Extra
 
-### Conversores en el appender
+### Converters in the appender
 
 In our appender, we can add converters, for example, we may want to get the date in nanosecond format.
 
@@ -255,11 +255,11 @@ and we will modify the appender to include a new field that contains the date in
     ... ... ...
 ```
 
-### Interceptores
+### Interceptors
 
-También disponemos de la posibilidad de agregar interceptores a nuestro restTemplate para que muestre tanto las peticiones realizadas como las respuestas recibidas.
+We also have the possibility of adding interceptors to our restTemplate so that it shows both the requests made and the responses received.
 
-Para ello incluiremos en nuestro proyecto la clase `RequestResponseLoggingInterceptor.java` y modificaremos la definición del bean restTemplate del siguiente modo.
+To do this, we will include the `RequestResponseLoggingInterceptor.java` class in our project and we will modify the definition of the restTemplate bean as follows.
 
 ```java
 
@@ -318,3 +318,5 @@ Response
   "creationDateNano": 1608033542219000000
 }
 ```
+
+You can download the source code of the projects in the following github link

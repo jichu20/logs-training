@@ -14,7 +14,7 @@ import brave.propagation.B3Propagation;
 import brave.propagation.ExtraFieldPropagation;
 
 @Configuration
-public class configuration {
+public class LoggingConfiguration {
 
     @Bean
     public RestTemplate getRestTemplate() {
