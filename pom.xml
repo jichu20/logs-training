@@ -10,8 +10,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>logger-lib</module>
+        <!-- <module>logger-lib</module> -->
         <module>logger-client</module>
         <module>logger-server</module>
+        <module>root-web-training</module>
+        <module>commons-training</module>
     </modules>
 </project>

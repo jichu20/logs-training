@@ -1,6 +1,6 @@
 package com.jichu20.loggerclient.service;
 
-import com.jichu20.loggerlib.dto.BookDto;
+import com.jichu20.commons.dto.BookDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

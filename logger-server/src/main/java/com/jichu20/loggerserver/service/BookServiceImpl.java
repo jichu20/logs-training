@@ -1,6 +1,6 @@
 package com.jichu20.loggerserver.service;
 
-import com.jichu20.loggerlib.dto.BookDto;
+import com.jichu20.commons.dto.BookDto;
 
 import org.springframework.stereotype.Service;
 

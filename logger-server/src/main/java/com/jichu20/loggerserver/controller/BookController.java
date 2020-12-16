@@ -2,7 +2,7 @@ package com.jichu20.loggerserver.controller;
 
 import com.jichu20.loggerserver.service.BookService;
 
-import com.jichu20.loggerlib.dto.BookDto;
+import com.jichu20.commons.dto.BookDto;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
