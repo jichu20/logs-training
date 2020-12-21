@@ -16,10 +16,6 @@
 	<name>logger-server</name>
 	<description>Demo project for Spring Boot</description>
 
-	<properties>
-		<uuid>empty</uuid>
-	</properties>
-
 	<dependencies>
 
 		<dependency>
