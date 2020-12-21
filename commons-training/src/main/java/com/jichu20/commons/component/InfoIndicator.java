@@ -29,19 +29,26 @@ public class InfoIndicator implements InfoContributor {
         Map<String, Object> buildInfo = new HashMap<String, Object>() {
             {
                 put("commit", buildProperties.get("commit"));
-                put("uuid", buildProperties.get("uuid"));
+                put("uuid", buildProperties.get("probedock.report.uid"));
                 put("date", buildProperties.getTime());
                 put("version", buildProperties.getVersion());
-                put("name", serviceName);
+            }
+        };
+
+        Map<String, Object> deployInfo = new HashMap<String, Object>() {
+            {
+                put("region", region);
             }
         };
 
         Map<String, Object> info = new HashMap<String, Object>() {
             {
                 put("buildInfo", buildInfo);
+                put("deployInfo", deployInfo);
             }
         };
 
+        builder.withDetail("serviceName", serviceName);
         builder.withDetail("info", info);
     }
 
