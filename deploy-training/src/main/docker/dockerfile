@@ -1,0 +1,14 @@
+FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
+COPY pom.xml /tmp/
+COPY src /tmp/src/
+COPY .git /tmp/.git
+WORKDIR /tmp/
+RUN mvn package
+
+# FROM tomcat:9.0-jre8-alpine
+FROM openjdk:8u252-jre-slim
+COPY --from=MAVEN_TOOL_CHAIN /tmp/target/deploy-training-0.0.1-SNAPSHOT.jar /app/app.jar
+
+HEALTHCHECK --interval=1m --timeout=3s CMD wget --quiet --tries=1 --spider http://localhost:8081/_service/info || exit 1
+
+CMD ["java", "-jar", "/app/app.jar"]
